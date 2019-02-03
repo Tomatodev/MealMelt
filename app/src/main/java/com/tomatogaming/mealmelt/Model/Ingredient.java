@@ -1,4 +1,4 @@
-package com.tomatogaming.mealmelt;
+package com.tomatogaming.mealmelt.Model;
 
 public class Ingredient
 {

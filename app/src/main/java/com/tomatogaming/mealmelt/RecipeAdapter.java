@@ -7,28 +7,29 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.tomatogaming.mealmelt.Model.Recipe;
+
 import java.util.List;
 
-public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.RecipeViewHolder>
-{
-    private List<Recipe> Recipes;
+public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter. RecipeViewHolder> {
 
-    public RecipeAdapter(List<Recipe> recipes)
-    {
-        this.Recipes = recipes;
+    private List<Recipe> recipes;
+
+    public RecipeAdapter(List<Recipe> recipes) {
+        this.recipes = recipes;
     }
 
+
     @Override
-    public int getItemCount()
-    {
-        return Recipes.size();
+    public int getItemCount() {
+        return recipes.size();
     }
 
     @Override
     public void onBindViewHolder(RecipeViewHolder recipeViewHolder, int id) {
-        Recipe recipe = Recipes.get(id);
-        recipeViewHolder.RecipeName.setText(recipe.Name);
-        recipeViewHolder.RecipePhoto.setImageDrawable(recipe.Photo);
+        Recipe recipe = recipes.get(id);
+        recipeViewHolder.nameView.setText(recipe.Name);
+        recipeViewHolder.photoView.setImageResource(recipe.PhotoId);
     }
 
     @Override
@@ -40,16 +41,15 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.RecipeView
         return new RecipeViewHolder(itemView);
     }
 
-    class RecipeViewHolder extends RecyclerView.ViewHolder
-    {
-        TextView RecipeName;
-        ImageView RecipePhoto;
+    public static class RecipeViewHolder extends RecyclerView.ViewHolder {
 
-        RecipeViewHolder(View view)
-        {
+        protected TextView nameView;
+        protected ImageView photoView;
+
+        public RecipeViewHolder(View view) {
             super(view);
-            RecipePhoto = view.findViewById(R.id.recipeImage);
-            RecipeName = view.findViewById(R.id.recipeTitle);
+            nameView = view.findViewById(R.id.recipeTitle);
+            photoView = view.findViewById(R.id.recipeImage);
         }
     }
 }
