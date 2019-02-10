@@ -1,9 +1,11 @@
 package com.tomatogaming.mealmelt;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 
 import com.tomatogaming.mealmelt.Model.Recipe;
 
@@ -57,5 +59,15 @@ public class MainActivity extends AppCompatActivity {
 
         RecipeAdapter recipeAdapter = new RecipeAdapter(recipes);
         recList.setAdapter(recipeAdapter);
+    }
+
+    public void addNewRecipe(View view) {
+        Intent intent = new Intent(MainActivity.this, RecipeActivity.class);
+        startActivity(intent);
+    }
+
+    public void viewExistingRecipe (View view) {
+        Intent intent = new Intent(MainActivity.this, RecipeActivity.class);
+        startActivity(intent);
     }
 }
