@@ -15,7 +15,7 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter. RecipeVie
 
     private List<Recipe> recipes;
 
-    public RecipeAdapter(List<Recipe> recipes) {
+    RecipeAdapter(List<Recipe> recipes) {
         this.recipes = recipes;
     }
 
@@ -41,14 +41,14 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter. RecipeVie
         return new RecipeViewHolder(itemView);
     }
 
-    public static class RecipeViewHolder extends RecyclerView.ViewHolder {
+    static class RecipeViewHolder extends RecyclerView.ViewHolder {
 
-        protected TextView nameView;
-        protected ImageView photoView;
+        TextView nameView;
+        ImageView photoView;
 
-        public RecipeViewHolder(View view) {
+        RecipeViewHolder(View view) {
             super(view);
-            nameView = view.findViewById(R.id.recipeTitle);
+            nameView = view.findViewById(R.id.txtTitle);
             photoView = view.findViewById(R.id.recipeImage);
         }
     }

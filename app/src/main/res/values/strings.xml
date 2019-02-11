@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">Meal Melt</string>
     <string name="title_activity_recipe">RecipeActivity</string>
+    <string name="lblIngredients">Ingredients</string>
+    <string name="lblSteps">Steps</string>
+    <string name="lblSides">Sides</string>
+    <string name="lblOverview">Overview</string>
+    <string name="lblBy">By</string>
+    <string name="recipe_image_text_placeholder">Recipe Image</string>
 </resources>
