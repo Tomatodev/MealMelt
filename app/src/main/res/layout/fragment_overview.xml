@@ -7,7 +7,7 @@
     android:orientation="vertical"
     tools:context=".RecipeActivity">
 
-    <TextView
+    <EditText
         android:id="@+id/txtTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -21,9 +21,12 @@
         android:layout_marginRight="5dp"
         android:layout_marginBottom="5dp"
         android:padding="5dp"
-        android:text="Title"
         android:textSize="24sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:importantForAutofill="no"
+        tools:targetApi="o"
+        android:inputType="text"
+        android:hint="@string/hint_recipe_title"/>
 
     <TextView
         android:id="@+id/lblBy"
@@ -45,7 +48,7 @@
         android:textStyle="bold"
         android:layout_toEndOf="@+id/txtTitle" />
 
-    <TextView
+    <EditText
         android:id="@+id/txtAuthor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -60,10 +63,13 @@
         android:layout_marginBottom="5dp"
         android:layout_toRightOf="@+id/lblBy"
         android:padding="5dp"
-        android:text="Author"
         android:textSize="24sp"
         android:textStyle="bold"
-        android:layout_toEndOf="@+id/lblBy" />
+        android:layout_toEndOf="@+id/lblBy"
+        android:importantForAutofill="no"
+        tools:targetApi="o"
+        android:inputType="text"
+        android:hint="@string/hint_author_name"/>
 
     <ImageView
         android:id="@+id/imgRecipe"
@@ -73,18 +79,40 @@
         app:srcCompat="@drawable/chefs_hat"
         android:contentDescription="@string/recipe_image_text_placeholder" />
 
-    <TextView
+    <EditText
         android:id="@+id/txtBlurb"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_below="@+id/imgRecipe"
+        android:hint="@string/hint_recipe_blurb"
+        android:importantForAutofill="no"
+        android:inputType="text"
+        android:textSize="24sp"
+        tools:targetApi="o" />
+
+    <TextView
+        android:id="@+id/lblCategory"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/imgRecipe"
-        android:text="Blurb"
-        android:textSize="24sp" />
+        android:layout_centerInParent="false"
+        android:layout_centerHorizontal="false"
+        android:layout_centerVertical="false"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_below="@+id/txtBlurb"
+        android:padding="5dp"
+        android:text="@string/lblcategory"
+        android:textSize="24sp"
+        android:textStyle="bold" />
 
     <Spinner
         android:id="@+id/categorySpinner"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/txtBlurb" />
+        android:layout_height="50dp"
+        android:layout_below="@+id/lblCategory" />
 
 </RelativeLayout>
