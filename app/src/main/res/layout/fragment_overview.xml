@@ -26,7 +26,8 @@
         android:importantForAutofill="no"
         tools:targetApi="o"
         android:inputType="text"
-        android:hint="@string/hint_recipe_title"/>
+        android:hint="@string/hint_recipe_title"
+        android:imeOptions="actionNext" />
 
     <TextView
         android:id="@+id/lblBy"
@@ -69,50 +70,58 @@
         android:importantForAutofill="no"
         tools:targetApi="o"
         android:inputType="text"
-        android:hint="@string/hint_author_name"/>
+        android:hint="@string/hint_author_name"
+        android:imeOptions="actionNext" />
 
-    <ImageView
-        android:id="@+id/imgRecipe"
-        android:layout_width="wrap_content"
-        android:layout_height="300dp"
-        android:layout_below="@+id/txtAuthor"
-        app:srcCompat="@drawable/chefs_hat"
-        android:contentDescription="@string/recipe_image_text_placeholder" />
-
-    <EditText
-        android:id="@+id/txtBlurb"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_below="@+id/imgRecipe"
-        android:hint="@string/hint_recipe_blurb"
-        android:importantForAutofill="no"
-        android:inputType="text"
-        android:textSize="24sp"
-        tools:targetApi="o" />
+        android:layout_height="match_parent"
+        android:layout_below="@id/txtTitle">
 
-    <TextView
-        android:id="@+id/lblCategory"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="false"
-        android:layout_centerHorizontal="false"
-        android:layout_centerVertical="false"
-        android:layout_marginStart="5dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginRight="5dp"
-        android:layout_marginBottom="5dp"
-        android:layout_below="@+id/txtBlurb"
-        android:padding="5dp"
-        android:text="@string/lblcategory"
-        android:textSize="24sp"
-        android:textStyle="bold" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <Spinner
-        android:id="@+id/categorySpinner"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_below="@+id/lblCategory" />
+            <ImageView
+                android:id="@+id/imgRecipe"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:contentDescription="@string/recipe_image_text_placeholder"
+                app:srcCompat="@android:drawable/ic_menu_camera" />
+
+            <TextView
+                android:id="@+id/lblCategory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="5dp"
+                android:padding="5dp"
+                android:text="@string/lblCategory"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/categorySpinner"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:imeOptions="actionNext" />
+
+            <EditText
+                android:id="@+id/txtBlurb"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:hint="@string/hint_recipe_blurb"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                android:textSize="24sp"
+                tools:targetApi="o"
+                android:imeOptions="actionNext" />
+        </LinearLayout>
+    </ScrollView>
 
 </RelativeLayout>

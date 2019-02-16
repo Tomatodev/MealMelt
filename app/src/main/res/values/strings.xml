@@ -10,5 +10,7 @@
     <string name="hint_recipe_title">Recipe Title</string>
     <string name="hint_author_name">Author Name</string>
     <string name="hint_recipe_blurb">Recipe Blurb</string>
-    <string name="lblcategory">Category</string>
+    <string name="lblCategory">Category</string>
+    <string name="lblSave">Save</string>
+    <string name="hint_ingredient_name">Ingredient Name</string>
 </resources>
