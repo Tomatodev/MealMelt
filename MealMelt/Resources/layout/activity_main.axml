@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".MainActivity">
+    android:orientation="vertical">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerView"
@@ -25,8 +24,7 @@
         android:layout_marginEnd="20dp"
         android:tint="@android:color/background_light"
         app:backgroundTint="@color/colorPrimary"
-        app:srcCompat="@android:drawable/ic_input_add"
-        android:onClick="addNewRecipe"/>
+        app:srcCompat="@android:drawable/ic_input_add"/>
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/filterButton"

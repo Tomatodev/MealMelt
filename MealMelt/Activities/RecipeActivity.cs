@@ -1,42 +1,27 @@
-package com.tomatogaming.mealmelt;
+﻿using Android.App;
+using Android.OS;
+using Android.Support.V4.App;
+using Android.Support.V4.View;
+using MealMelt.Activities.Fragments;
 
-import android.os.Bundle;
-import android.support.design.widget.TabLayout;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
+namespace MealMelt
+{
+    [Activity(Label = "RecipeActivity")]
+    public class RecipeActivity : FragmentActivity
+    {
+        //https://docs.microsoft.com/en-us/xamarin/android/user-interface/controls/view-pager/viewpager-and-fragments
+        protected override void OnCreate(Bundle savedInstanceState)
+        {
+            base.OnCreate(savedInstanceState);
+            SetContentView(Resource.Layout.activity_recipe);
 
-public class RecipeActivity extends AppCompatActivity {
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_recipe);
-
-        TabLayout tabLayout = findViewById(R.id.tabLayout);
-        tabLayout.addTab(tabLayout.newTab().setText("Overview"));
-        tabLayout.addTab(tabLayout.newTab().setText("Ingredients"));
-        tabLayout.addTab(tabLayout.newTab().setText("Steps"));
-        tabLayout.addTab(tabLayout.newTab().setText("Sides"));
-
-        final ViewPager viewPager = findViewById(R.id.pager);
-        final TabPagerAdapter pagerAdapter = new TabPagerAdapter(getSupportFragmentManager(), tabLayout.getTabCount());
-        viewPager.setAdapter(pagerAdapter);
-        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
-        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
-            @Override
-            public void onTabSelected(TabLayout.Tab tab) {
-                viewPager.setCurrentItem(tab.getPosition());
-            }
-
-            @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
-
-            }
-
-            @Override
-            public void onTabReselected(TabLayout.Tab tab) {
-
-            }
-        });
+            var adapter = new RecipePagerAdapter(SupportFragmentManager,
+                    new RecipeOverview(), 
+                    new RecipeIngredients(), 
+                    new RecipeSteps(),
+                    new RecipeSides());
+            var viewPager = FindViewById<ViewPager>(Resource.Id.pager);
+            viewPager.Adapter = adapter;
+        }
     }
 }

@@ -6,8 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="5dp"
-    card_view:cardCornerRadius="4dp"
-    android:onClick="viewExistingRecipe">
+    android:onClick="ViewExistingRecipe">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -18,8 +17,7 @@
             android:layout_width="wrap_content"
             android:layout_height="200dp"
             android:paddingTop="20sp"
-            android:contentDescription="Recipe Image"
-            tools:ignore="HardcodedText" />
+            android:contentDescription="Recipe Image" />
 
         <TextView
             android:id="@+id/txtTitle"

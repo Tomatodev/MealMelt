@@ -1,7 +1,8 @@
-package com.tomatogaming.mealmelt.Model;
-
-public class Category
+﻿namespace MealMelt.Repository.Models
 {
-    public int Id;
-    public String Name;
+    public class Category
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+    }
 }

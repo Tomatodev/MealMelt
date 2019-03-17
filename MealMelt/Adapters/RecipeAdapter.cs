@@ -1,55 +1,44 @@
-package com.tomatogaming.mealmelt;
+﻿using Android.App;
+using Android.Support.V7.Widget;
+using Android.Views;
+using MealMelt.Repository.Models;
+using Square.Picasso;
 
-import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
+namespace MealMelt
+{
+    class RecipeAdapter : RecyclerView.Adapter //https://blog.xamarin.com/recyclerview-highly-optimized-collections-for-android-apps/
+    {
+        Recipe[] recipes;
+        Activity activity;
 
-import com.tomatogaming.mealmelt.Model.Recipe;
-
-import java.util.List;
-
-public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter. RecipeViewHolder> {
-
-    private List<Recipe> recipes;
-
-    RecipeAdapter(List<Recipe> recipes) {
-        this.recipes = recipes;
-    }
-
-
-    @Override
-    public int getItemCount() {
-        return recipes.size();
-    }
-
-    @Override
-    public void onBindViewHolder(RecipeViewHolder recipeViewHolder, int id) {
-        Recipe recipe = recipes.get(id);
-        recipeViewHolder.nameView.setText(recipe.Name);
-        recipeViewHolder.photoView.setImageResource(recipe.PhotoId);
-    }
-
-    @Override
-    public RecipeViewHolder onCreateViewHolder(ViewGroup viewGroup, int id) {
-        View itemView = LayoutInflater.
-                from(viewGroup.getContext()).
-                inflate(R.layout.main_cardview, viewGroup, false);
-
-        return new RecipeViewHolder(itemView);
-    }
-
-    static class RecipeViewHolder extends RecyclerView.ViewHolder {
-
-        TextView nameView;
-        ImageView photoView;
-
-        RecipeViewHolder(View view) {
-            super(view);
-            nameView = view.findViewById(R.id.txtTitle);
-            photoView = view.findViewById(R.id.recipeImage);
+        public RecipeAdapter(Activity activity, Recipe[] recipes)
+        {
+            this.recipes = recipes;
+            this.activity = activity;
         }
+
+        public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
+        {
+            var id = Resource.Layout.main_cardview;
+            var itemView = LayoutInflater.From(parent.Context).Inflate(id, parent, false);
+
+            return new RecipeAdapterViewHolder(itemView);
+        }
+
+        // Replace the contents of a view (invoked by the layout manager)
+        public override void OnBindViewHolder(RecyclerView.ViewHolder viewHolder, int position)
+        {
+            var item = recipes[position];
+            
+            // Replace the contents of the view with that element
+            var holder = viewHolder as RecipeAdapterViewHolder;
+            holder.Caption.Text = $"{item.Name} by {item.Author.Name}";
+            if (item.PhotoId != null)
+            {
+                Picasso.With(activity).Load(item.PhotoId ?? 0).Into(holder.Image);
+            }
+        }
+
+        public override int ItemCount => recipes.Length;
     }
 }

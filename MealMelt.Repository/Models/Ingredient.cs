@@ -1,9 +1,11 @@
-package com.tomatogaming.mealmelt.Model;
-
-public class Ingredient
+﻿namespace MealMelt.Repository.Models
 {
-    public int Id;
-    public String Type; //chopped, minced, etc
-    public double Amount;
-    public String Unit; //cups, tsp, etc
+    public class Ingredient
+    {
+        public int Id { get; set; }
+        public string Type { get; set; } //chopped, minced, etc
+        public decimal Amount { get; set; }
+        public string Unit { get; set; } //cups, Tsp, etc
+        public string Name { get; set; }
+    }
 }

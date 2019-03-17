@@ -1,8 +1,9 @@
-package com.tomatogaming.mealmelt.Model;
-
-public class Tool
+﻿namespace MealMelt.Repository.Models
 {
-    public int Id;
-    public String Name;
-    public boolean IsDangerous;
+    public class Tool
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public bool IsDangerous { get; set; }
+    }
 }

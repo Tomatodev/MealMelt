@@ -1,12 +1,13 @@
-package com.tomatogaming.mealmelt.Model;
-
-public class Step
+﻿namespace MealMelt.Repository.Models
 {
-    public int Id;
-    public int RecipeId;
-    public int Number;
-    public String Description;
-    public int TimeInMinutes;
-    public com.tomatogaming.mealmelt.Model.Tool Tool;
-    public com.tomatogaming.mealmelt.Model.Ingredient Ingredient;
+    public class Step
+    {
+        public int Id { get; set; }
+        public int RecipeId { get; set; }
+        public int Number { get; set; }
+        public string Description { get; set; }
+        public decimal TimeInMinutes { get; set; }
+        public Tool Tool { get; set; }
+        public Ingredient Ingredient { get; set; }
+    }
 }

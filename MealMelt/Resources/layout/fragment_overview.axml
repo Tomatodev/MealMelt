@@ -74,8 +74,9 @@
         android:imeOptions="actionNext" />
 
     <ScrollView
+        android:id="@+id/middleScrollView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_below="@id/txtTitle">
 
         <LinearLayout
@@ -116,12 +117,30 @@
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:hint="@string/hint_recipe_blurb"
+                android:imeOptions="actionNext"
                 android:importantForAutofill="no"
                 android:inputType="text"
                 android:textSize="24sp"
-                tools:targetApi="o"
-                android:imeOptions="actionNext" />
+                tools:targetApi="o" />
         </LinearLayout>
     </ScrollView>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/btnSaveOverview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:baselineAligned="false"
+        android:clickable="true"
+        android:focusable="true"
+        android:layout_marginBottom="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginEnd="20dp"
+        android:tint="@android:color/background_light"
+        app:backgroundTint="@color/colorPrimary"
+        app:srcCompat="@android:drawable/ic_menu_save"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true" />
 
 </RelativeLayout>

@@ -1,73 +1,55 @@
-package com.tomatogaming.mealmelt;
+﻿using Android.App;
+using Android.Content;
+using Android.OS;
+using Android.Support.Design.Widget;
+using Android.Support.V7.App;
+using Android.Support.V7.Widget;
+using Android.Views;
+using Java.Interop;
+using MealMelt.Repository.Models;
 
-import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.view.View;
+namespace MealMelt
+{
+    [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = true)]
+    public class MainActivity : AppCompatActivity
+    {
+        
+        protected override void OnCreate(Bundle savedInstanceState)
+        {
+            base.OnCreate(savedInstanceState);
+            SetContentView(Resource.Layout.activity_main);
 
-import com.tomatogaming.mealmelt.Model.Recipe;
+            var recList = FindViewById<RecyclerView>(Resource.Id.recyclerView);
+            var layoutManager = new GridLayoutManager(this, 2);
+            recList.SetLayoutManager(layoutManager);
 
-import java.util.ArrayList;
-import java.util.List;
+            var recipes = new[] 
+            {
+                new Recipe { Name = "Soup", Author = new Author {Name = "Me" }, PhotoId = Resource.Drawable.chefs_hat },
+                new Recipe { Name = "Steak", Author = new Author {Name = "Me" } },
+                new Recipe { Name = "Salad", Author = new Author {Name = "Me" }, PhotoId = Resource.Drawable.chefs_hat },
+                new Recipe { Name = "Stew", Author = new Author {Name = "Me" }, PhotoId = Resource.Drawable.chefs_hat },
+                new Recipe { Name = "Sangria", Author = new Author {Name = "Me" }, PhotoId = Resource.Drawable.chefs_hat },
+                new Recipe { Name = "Squash", Author = new Author {Name = "Me" }, PhotoId = Resource.Drawable.chefs_hat }
+            };
+            //TODO: populate recipes from somewhere
 
-public class MainActivity extends AppCompatActivity {
+            var recipeAdapter = new RecipeAdapter(this, recipes);
+            recList.SetAdapter(recipeAdapter);
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+            var newRecipe = FindViewById<FloatingActionButton>(Resource.Id.newRecipeButton);
+            newRecipe.Click += (sender, e) => {
+                var intent = new Intent(this, typeof(RecipeActivity));
+                StartActivity(intent);
+            };
 
-        //https://www.binpress.com/android-recyclerview-cardview-guide/
-        RecyclerView recList = findViewById(R.id.recyclerView);
-        recList.setHasFixedSize(true);
-        LinearLayoutManager llm = new LinearLayoutManager(this);
-        llm.setOrientation(LinearLayoutManager.VERTICAL);
-        recList.setLayoutManager(llm);
+        }
 
-        List<Recipe> recipes = new ArrayList<>();
-        Recipe testRecipe1 = new Recipe();
-        testRecipe1.Name = "Test Recipe 1";
-        testRecipe1.PhotoId = R.drawable.chefs_hat;
-        recipes.add(testRecipe1);
-        Recipe testRecipe2 = new Recipe();
-        testRecipe2.Name = "Test Recipe 2";
-        testRecipe2.PhotoId = R.drawable.chefs_hat;
-        recipes.add(testRecipe2);
-        Recipe testRecipe3 = new Recipe();
-        testRecipe3.Name = "Test Recipe 3";
-        testRecipe3.PhotoId = R.drawable.chefs_hat;
-        recipes.add(testRecipe3);
-        Recipe testRecipe4 = new Recipe();
-        testRecipe4.Name = "Test Recipe 4";
-        testRecipe4.PhotoId = R.drawable.chefs_hat;
-        recipes.add(testRecipe4);
-        Recipe testRecipe5 = new Recipe();
-        testRecipe5.Name = "Test Recipe 5";
-        testRecipe5.PhotoId = R.drawable.chefs_hat;
-        recipes.add(testRecipe5);
-        Recipe testRecipe6 = new Recipe();
-        testRecipe6.Name = "Test Recipe 6";
-        testRecipe6.PhotoId = R.drawable.chefs_hat;
-        recipes.add(testRecipe6);
-        Recipe testRecipe7 = new Recipe();
-        testRecipe7.Name = "Test Recipe 7";
-        testRecipe7.PhotoId = R.drawable.chefs_hat;
-        recipes.add(testRecipe7);
-        //TODO: populate recipes from somewhere
-
-        RecipeAdapter recipeAdapter = new RecipeAdapter(recipes);
-        recList.setAdapter(recipeAdapter);
-    }
-
-    public void addNewRecipe(View view) {
-        Intent intent = new Intent(MainActivity.this, RecipeActivity.class);
-        startActivity(intent);
-    }
-
-    public void viewExistingRecipe (View view) {
-        Intent intent = new Intent(MainActivity.this, RecipeActivity.class);
-        startActivity(intent);
+        [Export("ViewExistingRecipe")]
+        public void ViewExistingRecipe(View view)
+        {
+            var intent = new Intent(this, typeof(RecipeActivity));
+            StartActivity(intent);
+        }
     }
 }
