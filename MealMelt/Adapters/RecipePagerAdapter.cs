@@ -33,7 +33,11 @@ namespace MealMelt
 
         public override Java.Lang.ICharSequence GetPageTitleFormatted(int position)
         {
-            return new Java.Lang.String(_fragmentTitles[position]);
+            if (position < _fragmentTitles.Length)
+            {
+                return new Java.Lang.String(_fragmentTitles[position]);
+            }
+            return new Java.Lang.String($"Detail {position}");
         }
     }
 }
