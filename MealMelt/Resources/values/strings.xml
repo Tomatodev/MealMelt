@@ -5,7 +5,7 @@
   <string name="lblSteps">Steps</string>
   <string name="lblSides">Sides</string>
   <string name="lblOverview">Overview</string>
-  <string name="lblBy">By</string>
+  <string name="lblBy">by</string>
   <string name="recipe_image_text_placeholder">Recipe Image</string>
   <string name="hint_recipe_title">Recipe Title</string>
   <string name="hint_author_name">Author Name</string>

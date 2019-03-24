@@ -32,7 +32,7 @@ namespace MealMelt
             
             // Replace the contents of the view with that element
             var holder = viewHolder as RecipeAdapterViewHolder;
-            holder.Caption.Text = $"{item.Name} by {item.Author.Name}";
+            holder.Caption.Text = $"{item.Name} by {item.Author}";
             if (item.PhotoId != null)
             {
                 Picasso.With(activity).Load(item.PhotoId ?? 0).Into(holder.Image);

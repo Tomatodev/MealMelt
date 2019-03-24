@@ -25,12 +25,12 @@ namespace MealMelt
 
             var recipes = new[] 
             {
-                new Recipe { Name = "Soup", Author = new Author {Name = "Me" }, PhotoId = Resource.Drawable.chefs_hat },
-                new Recipe { Name = "Steak", Author = new Author {Name = "Me" } },
-                new Recipe { Name = "Salad", Author = new Author {Name = "Me" }, PhotoId = Resource.Drawable.chefs_hat },
-                new Recipe { Name = "Stew", Author = new Author {Name = "Me" }, PhotoId = Resource.Drawable.chefs_hat },
-                new Recipe { Name = "Sangria", Author = new Author {Name = "Me" }, PhotoId = Resource.Drawable.chefs_hat },
-                new Recipe { Name = "Squash", Author = new Author {Name = "Me" }, PhotoId = Resource.Drawable.chefs_hat }
+                new Recipe { Name = "Soup", Author = "Me", PhotoId = Resource.Drawable.chefs_hat },
+                new Recipe { Name = "Steak", Author = "Me" },
+                new Recipe { Name = "Salad", Author = "Me", PhotoId = Resource.Drawable.chefs_hat },
+                new Recipe { Name = "Stew", Author = "Me", PhotoId = Resource.Drawable.chefs_hat },
+                new Recipe { Name = "Sangria", Author = "Me" },
+                new Recipe { Name = "Squash", Author = "Me", PhotoId = Resource.Drawable.chefs_hat }
             };
             //TODO: populate recipes from somewhere
 
