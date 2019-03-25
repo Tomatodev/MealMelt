@@ -150,7 +150,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MealMelt.Repository\MealMelt.Repository.csproj">
-      <Project>{48E63E70-74CE-438F-997C-F665F1A8606D}</Project>
+      <Project>{da7c2137-f3cf-4cee-851d-22a2d17a6f71}</Project>
       <Name>MealMelt.Repository</Name>
     </ProjectReference>
   </ItemGroup>

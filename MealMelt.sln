@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.438
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28714.193
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MealMelt", "MealMelt\MealMelt.csproj", "{7471B225-863D-43AD-BA97-1C5152F97584}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MealMelt.Repository", "MealMelt.Repository\MealMelt.Repository.csproj", "{48E63E70-74CE-438F-997C-F665F1A8606D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MealMelt.Repository", "MealMelt.Repository\MealMelt.Repository.csproj", "{DA7C2137-F3CF-4CEE-851D-22A2D17A6F71}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,10 +19,10 @@ Global
 		{7471B225-863D-43AD-BA97-1C5152F97584}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7471B225-863D-43AD-BA97-1C5152F97584}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7471B225-863D-43AD-BA97-1C5152F97584}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{48E63E70-74CE-438F-997C-F665F1A8606D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{48E63E70-74CE-438F-997C-F665F1A8606D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{48E63E70-74CE-438F-997C-F665F1A8606D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{48E63E70-74CE-438F-997C-F665F1A8606D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA7C2137-F3CF-4CEE-851D-22A2D17A6F71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA7C2137-F3CF-4CEE-851D-22A2D17A6F71}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA7C2137-F3CF-4CEE-851D-22A2D17A6F71}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA7C2137-F3CF-4CEE-851D-22A2D17A6F71}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
