@@ -3,6 +3,8 @@ using Android.Support.Design.Widget;
 using Android.Support.V4.App;
 using Android.Views;
 using Android.Widget;
+using MealMelt.Repository;
+using System.IO;
 
 namespace MealMelt.Activities.Fragments
 {
@@ -24,8 +26,9 @@ namespace MealMelt.Activities.Fragments
                 if (Validate(titleControl) && Validate(authorControl))
                 {
                     //Save
-                    var toast = Toast.MakeText(Context, "Saved Changes", ToastLength.Short);
-                    toast.Show();
+                    
+                    var toast = Toast.MakeText(Context, "Changes Saved", ToastLength.Short);
+                    toast.Show(); 
                 }
             };
 

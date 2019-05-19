@@ -7,3 +7,5 @@
 /MealMelt.Repository/obj
 /MealMelt.Repository/bin
 /.vs
+/EFMigrations/bin/Debug/netcoreapp2.2
+/EFMigrations/obj
