@@ -14,17 +14,29 @@ namespace MealMelt.Activities.Fragments
     {
         private readonly DatabaseContext _dbContext; //TODO: Dependency injection
         private bool _editMode;
+        private Recipe _recipe;
 
-        public RecipeOverview()
+        public RecipeOverview(int? recipeId)
         {
             var dbPath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "MealMelt.db");
             _dbContext = new DatabaseContext(dbPath);
+
+            if (recipeId != null)
+            {
+                _recipe = _dbContext.Recipes.Find(recipeId);
+                _editMode = false;
+            }
+            else
+            {
+                _recipe = new Recipe();
+                _editMode = true;
+            }
         }
 
         public override void SetMenuVisibility(bool menuVisible) //https://stackoverflow.com/a/48414486/
         {
             base.SetMenuVisibility(menuVisible);
-            if (menuVisible == false && _editMode)
+            if (menuVisible == false && _editMode && Context != null)
             {
                 var toast = Toast.MakeText(Context, "Changes have not been saved.", ToastLength.Long);
                 toast.Show();
@@ -34,7 +46,9 @@ namespace MealMelt.Activities.Fragments
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             var view = inflater.Inflate(Resource.Layout.fragment_overview, container, false);
-            ToggleControls(view, false);
+
+            PopulateFields(view);
+            ToggleControls(view, _editMode);
 
             var editOverview = view.FindViewById<FloatingActionButton>(Resource.Id.btnEditOverview);
             editOverview.Click += delegate
@@ -51,6 +65,21 @@ namespace MealMelt.Activities.Fragments
             return view;
         }
 
+        private void PopulateFields(View view)
+        {
+            var titleControl = view.FindViewById<TextView>(Resource.Id.txtTitle);
+            var authorControl = view.FindViewById<TextView>(Resource.Id.txtAuthor);
+            var blurbControl = view.FindViewById<TextView>(Resource.Id.txtBlurb);
+            var categoryControl = view.FindViewById<Spinner>(Resource.Id.categorySpinner);
+            var photoControl = view.FindViewById<ImageView>(Resource.Id.imgRecipe);
+
+            titleControl.Text = _recipe.Name;
+            authorControl.Text = _recipe.Author;
+            //blurbControl.Text = _recipe.Blurb;
+            //categoryControl.Selected = 
+            //photoControl.SetImageDrawable = 
+        }
+
         private void ToggleControls(View view, bool enabled) //TODO: controls do not re-enable. disabled controls have underline that looks ugly
         {
             _editMode = enabled;
@@ -58,6 +87,7 @@ namespace MealMelt.Activities.Fragments
             var titleControl = view.FindViewById<TextView>(Resource.Id.txtTitle);
             var authorControl = view.FindViewById<TextView>(Resource.Id.txtAuthor);
             var blurbControl = view.FindViewById<TextView>(Resource.Id.txtBlurb);
+            var categoryLabel = view.FindViewById<TextView>(Resource.Id.lblCategory);
             var categoryControl = view.FindViewById<Spinner>(Resource.Id.categorySpinner);
             var photoControl = view.FindViewById<ImageView>(Resource.Id.imgRecipe);
             var saveOverview = view.FindViewById<FloatingActionButton>(Resource.Id.btnSaveOverview);
@@ -65,25 +95,24 @@ namespace MealMelt.Activities.Fragments
 
             titleControl.Focusable = enabled;
             titleControl.Clickable = enabled;
+            titleControl.FocusableInTouchMode = enabled;
+
             authorControl.Focusable = enabled;
             authorControl.Clickable = enabled;
+            authorControl.FocusableInTouchMode = enabled;
+
             blurbControl.Focusable = enabled;
             blurbControl.Clickable = enabled;
-            categoryControl.Focusable = enabled;
-            categoryControl.Clickable = enabled;
+            blurbControl.FocusableInTouchMode = enabled;
+
             photoControl.Focusable = enabled;
             photoControl.Clickable = enabled;
+            photoControl.FocusableInTouchMode = enabled;
 
-            if (enabled)
-            {
-                saveOverview.SetVisibility(ViewStates.Visible);
-                editOverview.SetVisibility(ViewStates.Gone);
-            }
-            else
-            {
-                saveOverview.SetVisibility(ViewStates.Gone);
-                editOverview.SetVisibility(ViewStates.Visible);
-            }
+            categoryLabel.Visibility = enabled ? ViewStates.Visible : ViewStates.Gone;
+            categoryControl.Visibility = enabled ? ViewStates.Visible : ViewStates.Gone;
+            saveOverview.Visibility = enabled ? ViewStates.Visible : ViewStates.Gone;
+            editOverview.Visibility = enabled ? ViewStates.Gone : ViewStates.Visible;
         }
 
         private void Save(View view)
@@ -97,13 +126,10 @@ namespace MealMelt.Activities.Fragments
             if (Validate(titleControl) && Validate(authorControl))
             {
                 //Save
-                var recipe = new Recipe()
-                {
-                    Name = titleControl.Text,
-                    Author = authorControl.Text,
+                _recipe.Name = titleControl.Text;
+                _recipe.Author = authorControl.Text;
                     //Category = _dbContext.Categories.Find(categoryControl.Id)
-                };
-                _dbContext.Add(recipe);
+                _dbContext.Update(_recipe);
                 _dbContext.SaveChanges();
                 var toast = Toast.MakeText(Context, "Changes Saved", ToastLength.Short);
                 toast.Show();

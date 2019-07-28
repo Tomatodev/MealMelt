@@ -15,11 +15,17 @@ namespace MealMelt
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.activity_recipe);
 
+            int? recipeId = Intent.GetIntExtra("RecipeId", 0);
+            if (recipeId == 0)
+            {
+                recipeId = null;
+            }
+
             var adapter = new RecipePagerAdapter(SupportFragmentManager,
-                    new RecipeOverview(), 
-                    new RecipeIngredients(), 
-                    new RecipeSteps(),
-                    new RecipeSides());
+                    new RecipeOverview(recipeId), 
+                    new RecipeIngredients(recipeId), 
+                    new RecipeSteps(recipeId),
+                    new RecipeSides(recipeId));
             var viewPager = FindViewById<ViewPager>(Resource.Id.pager);
             viewPager.OffscreenPageLimit = 4;
             viewPager.Adapter = adapter;

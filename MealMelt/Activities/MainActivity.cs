@@ -10,6 +10,7 @@ using MealMelt.Repository;
 using System.Linq;
 using System.IO;
 using System;
+using Android.Widget;
 
 namespace MealMelt
 {
@@ -57,7 +58,9 @@ namespace MealMelt
         [Export("ViewExistingRecipe")]
         public void ViewExistingRecipe(View view)
         {
+            var recipeId = int.Parse(view.FindViewById<TextView>(Resource.Id.txtRecipeId).Text);
             var intent = new Intent(this, typeof(RecipeActivity));
+            intent.PutExtra("RecipeId", recipeId);
             StartActivity(intent);
         }
     }

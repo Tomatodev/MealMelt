@@ -3077,17 +3077,17 @@ namespace MealMelt
 			// aapt resource value: 0x7f090069
 			public const int action_bar_title = 2131296361;
 			
-			// aapt resource value: 0x7f0900c2
-			public const int action_container = 2131296450;
+			// aapt resource value: 0x7f0900c3
+			public const int action_container = 2131296451;
 			
 			// aapt resource value: 0x7f09008e
 			public const int action_context_bar = 2131296398;
 			
-			// aapt resource value: 0x7f0900cd
-			public const int action_divider = 2131296461;
+			// aapt resource value: 0x7f0900ce
+			public const int action_divider = 2131296462;
 			
-			// aapt resource value: 0x7f0900c3
-			public const int action_image = 2131296451;
+			// aapt resource value: 0x7f0900c4
+			public const int action_image = 2131296452;
 			
 			// aapt resource value: 0x7f090003
 			public const int action_menu_divider = 2131296259;
@@ -3104,11 +3104,11 @@ namespace MealMelt
 			// aapt resource value: 0x7f09006b
 			public const int action_mode_close_button = 2131296363;
 			
-			// aapt resource value: 0x7f0900c4
-			public const int action_text = 2131296452;
+			// aapt resource value: 0x7f0900c5
+			public const int action_text = 2131296453;
 			
-			// aapt resource value: 0x7f0900ce
-			public const int actions = 2131296462;
+			// aapt resource value: 0x7f0900cf
+			public const int actions = 2131296463;
 			
 			// aapt resource value: 0x7f09006c
 			public const int activity_chooser_view_content = 2131296364;
@@ -3167,8 +3167,8 @@ namespace MealMelt
 			// aapt resource value: 0x7f090086
 			public const int checkbox = 2131296390;
 			
-			// aapt resource value: 0x7f0900cc
-			public const int chronometer = 2131296460;
+			// aapt resource value: 0x7f0900cd
+			public const int chronometer = 2131296461;
 			
 			// aapt resource value: 0x7f090061
 			public const int clip_horizontal = 2131296353;
@@ -3278,8 +3278,8 @@ namespace MealMelt
 			// aapt resource value: 0x7f090071
 			public const int icon = 2131296369;
 			
-			// aapt resource value: 0x7f0900cf
-			public const int icon_group = 2131296463;
+			// aapt resource value: 0x7f0900d0
+			public const int icon_group = 2131296464;
 			
 			// aapt resource value: 0x7f090041
 			public const int ifRoom = 2131296321;
@@ -3290,8 +3290,8 @@ namespace MealMelt
 			// aapt resource value: 0x7f0900b4
 			public const int imgRecipe = 2131296436;
 			
-			// aapt resource value: 0x7f0900c8
-			public const int info = 2131296456;
+			// aapt resource value: 0x7f0900c9
+			public const int info = 2131296457;
 			
 			// aapt resource value: 0x7f0900ae
 			public const int ingredientListLayout = 2131296430;
@@ -3329,8 +3329,8 @@ namespace MealMelt
 			// aapt resource value: 0x7f090070
 			public const int list_item = 2131296368;
 			
-			// aapt resource value: 0x7f0900d1
-			public const int masked = 2131296465;
+			// aapt resource value: 0x7f0900d2
+			public const int masked = 2131296466;
 			
 			// aapt resource value: 0x7f09009c
 			public const int message = 2131296412;
@@ -3377,14 +3377,14 @@ namespace MealMelt
 			// aapt resource value: 0x7f090025
 			public const int normal = 2131296293;
 			
-			// aapt resource value: 0x7f0900ca
-			public const int notification_background = 2131296458;
+			// aapt resource value: 0x7f0900cb
+			public const int notification_background = 2131296459;
+			
+			// aapt resource value: 0x7f0900c7
+			public const int notification_main_column = 2131296455;
 			
 			// aapt resource value: 0x7f0900c6
-			public const int notification_main_column = 2131296454;
-			
-			// aapt resource value: 0x7f0900c5
-			public const int notification_main_column_container = 2131296453;
+			public const int notification_main_column_container = 2131296454;
 			
 			// aapt resource value: 0x7f090060
 			public const int outline = 2131296352;
@@ -3413,8 +3413,8 @@ namespace MealMelt
 			// aapt resource value: 0x7f090087
 			public const int radio = 2131296391;
 			
-			// aapt resource value: 0x7f0900c1
-			public const int recipeImage = 2131296449;
+			// aapt resource value: 0x7f0900c2
+			public const int recipeImage = 2131296450;
 			
 			// aapt resource value: 0x7f09009d
 			public const int recyclerView = 2131296413;
@@ -3422,11 +3422,11 @@ namespace MealMelt
 			// aapt resource value: 0x7f090055
 			public const int right = 2131296341;
 			
-			// aapt resource value: 0x7f0900c9
-			public const int right_icon = 2131296457;
+			// aapt resource value: 0x7f0900ca
+			public const int right_icon = 2131296458;
 			
-			// aapt resource value: 0x7f0900c7
-			public const int right_side = 2131296455;
+			// aapt resource value: 0x7f0900c8
+			public const int right_side = 2131296456;
 			
 			// aapt resource value: 0x7f09000c
 			public const int save_image_matrix = 2131296268;
@@ -3599,8 +3599,8 @@ namespace MealMelt
 			// aapt resource value: 0x7f09001a
 			public const int textinput_helper_text = 2131296282;
 			
-			// aapt resource value: 0x7f0900cb
-			public const int time = 2131296459;
+			// aapt resource value: 0x7f0900cc
+			public const int time = 2131296460;
 			
 			// aapt resource value: 0x7f090023
 			public const int title = 2131296291;
@@ -3641,6 +3641,9 @@ namespace MealMelt
 			// aapt resource value: 0x7f0900b7
 			public const int txtBlurb = 2131296439;
 			
+			// aapt resource value: 0x7f0900c1
+			public const int txtRecipeId = 2131296449;
+			
 			// aapt resource value: 0x7f0900b0
 			public const int txtTitle = 2131296432;
 			
@@ -3659,8 +3662,8 @@ namespace MealMelt
 			// aapt resource value: 0x7f09001b
 			public const int view_offset_helper = 2131296283;
 			
-			// aapt resource value: 0x7f0900d0
-			public const int visible = 2131296464;
+			// aapt resource value: 0x7f0900d1
+			public const int visible = 2131296465;
 			
 			// aapt resource value: 0x7f090043
 			public const int withText = 2131296323;

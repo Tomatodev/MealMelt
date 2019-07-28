@@ -10,5 +10,6 @@ namespace MealMelt.Repository.Models
         public string Author { get; set; }
         public Category Category { get; set; }
         public int? PhotoId { get; set; }
+        public string Blurb { get; set; }
     }
 }
