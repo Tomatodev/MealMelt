@@ -24,24 +24,34 @@ namespace MealMelt
             _dbContext = new DatabaseContext(dbPath);
         }
 
+        protected override void OnResume()
+        {
+            FetchRecipes();
+            base.OnResume();
+        }
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.activity_main);
 
+            var newRecipe = FindViewById<FloatingActionButton>(Resource.Id.newRecipeButton);
+            newRecipe.Click += (sender, e) =>
+            {
+                var intent = new Intent(this, typeof(RecipeActivity));
+                StartActivity(intent);
+            };
+        }
+
+        private void FetchRecipes()
+        {
             var recList = FindViewById<RecyclerView>(Resource.Id.recyclerView);
             var layoutManager = new GridLayoutManager(this, 2);
             recList.SetLayoutManager(layoutManager);
 
-            var recipes = _dbContext.Recipes.ToArray(); 
+            var recipes = _dbContext.Recipes.ToArray();
             var recipeAdapter = new RecipeAdapter(this, recipes);
             recList.SetAdapter(recipeAdapter);
-
-            var newRecipe = FindViewById<FloatingActionButton>(Resource.Id.newRecipeButton);
-            newRecipe.Click += (sender, e) => {
-                var intent = new Intent(this, typeof(RecipeActivity));
-                StartActivity(intent);
-            };
         }
 
         [Export("ViewExistingRecipe")]
