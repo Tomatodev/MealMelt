@@ -13,11 +13,22 @@ namespace MealMelt.Activities.Fragments
     public class RecipeOverview : Fragment
     {
         private readonly DatabaseContext _dbContext; //TODO: Dependency injection
+        private bool _editMode;
 
         public RecipeOverview()
         {
             var dbPath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "MealMelt.db");
             _dbContext = new DatabaseContext(dbPath);
+        }
+
+        public override void SetMenuVisibility(bool menuVisible) //https://stackoverflow.com/a/48414486/
+        {
+            base.SetMenuVisibility(menuVisible);
+            if (menuVisible == false && _editMode)
+            {
+                var toast = Toast.MakeText(Context, "Changes have not been saved.", ToastLength.Long);
+                toast.Show();
+            }
         }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -42,6 +53,8 @@ namespace MealMelt.Activities.Fragments
 
         private void ToggleControls(View view, bool enabled) //TODO: controls do not re-enable. disabled controls have underline that looks ugly
         {
+            _editMode = enabled;
+
             var titleControl = view.FindViewById<TextView>(Resource.Id.txtTitle);
             var authorControl = view.FindViewById<TextView>(Resource.Id.txtAuthor);
             var blurbControl = view.FindViewById<TextView>(Resource.Id.txtBlurb);

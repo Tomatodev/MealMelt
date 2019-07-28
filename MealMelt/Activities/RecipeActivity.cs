@@ -21,6 +21,7 @@ namespace MealMelt
                     new RecipeSteps(),
                     new RecipeSides());
             var viewPager = FindViewById<ViewPager>(Resource.Id.pager);
+            viewPager.OffscreenPageLimit = 4;
             viewPager.Adapter = adapter;
         }
     }
